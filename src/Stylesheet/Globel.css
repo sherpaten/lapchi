@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-gold: #c29b38;
+  --primary-gold-dark: #9a7826;
+  --bg-dark: #12100e;
+  --bg-card: #1c1917;
+  --bg-light: #26221f;
+  --text-main: #f5f2eb;
+  --text-muted: #a8a095;
+  --accent-red: #8b2626;
+  --font-serif: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--primary-gold);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary-gold);
+  color: #12100e;
+}
+
+.btn-primary:hover {
+  background: var(--primary-gold-dark);
+  color: #ffffff;
+}
+
+.btn-outline {
+  border: 1px solid var(--primary-gold);
+  color: var(--primary-gold);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary-gold);
+  color: #12100e;
+}

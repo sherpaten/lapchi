@@ -1,0 +1,136 @@
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(18, 16, 14, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(194, 155, 56, 0.2);
+  z-index: 1000;
+  padding: 12px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Wrapper containing Image + Text */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary-gold);
+  line-height: 1.1;
+}
+
+.logo-sub {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--primary-gold);
+}
+
+/* Action Controls (Cart & Hamburger) */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-btn {
+  background: transparent;
+  border: 1px solid var(--primary-gold);
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.cart-btn:hover {
+  background: rgba(194, 155, 56, 0.1);
+}
+
+.cart-badge {
+  background: var(--primary-gold);
+  color: #12100e;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 6px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Responsive Mobile Styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    border-bottom: 1px solid rgba(194, 155, 56, 0.2);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
