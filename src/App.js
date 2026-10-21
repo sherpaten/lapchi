@@ -8,10 +8,12 @@ import Services from './components/Services';
 import Events from './components/Events';
 import About from './components/About';
 import Contact from './components/Contact';
+import CheckoutModal from './components/CheckoutModal';
 
 function App() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const handleAddToCart = (product) => {
     setCart((prev) => {
@@ -23,6 +25,24 @@ function App() {
       }
       return [...prev, { ...product, qty: 1 }];
     });
+  };
+
+  const handleUpdateQty = (id, delta) => {
+    setCart((prev) =>
+      prev
+        .map((item) => {
+          if (item.id === id) {
+            const newQty = item.qty + delta;
+            return newQty > 0 ? { ...item, qty: newQty } : null;
+          }
+          return item;
+        })
+        .filter(Boolean)
+    );
+  };
+
+  const handleRemoveItem = (id) => {
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
   const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
@@ -74,9 +94,17 @@ function App() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                     >
-                      <div>
+                      <div className="cart-item-details">
                         <h4>{item.name}</h4>
-                        <p>NPR {item.price} x {item.qty}</p>
+                        <p>NPR {item.price} each</p>
+                        
+                        {/* Quantity Controls */}
+                        <div className="qty-controls">
+                          <button onClick={() => handleUpdateQty(item.id, -1)}>-</button>
+                          <span>{item.qty}</span>
+                          <button onClick={() => handleUpdateQty(item.id, 1)}>+</button>
+                          <button className="remove-btn" onClick={() => handleRemoveItem(item.id)}>🗑</button>
+                        </div>
                       </div>
                       <strong>NPR {item.price * item.qty}</strong>
                     </motion.div>
@@ -92,6 +120,10 @@ function App() {
                     style={{ width: '100%', marginTop: '12px' }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      setIsCartOpen(false);
+                      setIsCheckoutOpen(true);
+                    }}
                   >
                     Proceed to Checkout
                   </motion.button>
@@ -102,9 +134,20 @@ function App() {
         )}
       </AnimatePresence>
 
+      {/* Checkout Modal */}
+      <AnimatePresence>
+        {isCheckoutOpen && (
+          <CheckoutModal 
+            cart={cart}
+            totalAmount={totalAmount}
+            onClose={() => setIsCheckoutOpen(false)}
+            onClearCart={() => setCart([])}
+          />
+        )}
+      </AnimatePresence>
+
       <footer className="footer">
         <div className="footer-content">
-          {/* PNG Logo for Footer */}
           <img 
             src={process.env.PUBLIC_URL + '/Logo.png'} 
             alt="Lapchi Mila Logo" 
