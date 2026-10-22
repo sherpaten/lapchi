@@ -4,10 +4,10 @@ import './Stylesheet/Globel.css';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Services from './components/Services';
-import Gallery from './components/Gallery'; // <-- Import Gallery
+import About from './components/About';       // <-- Story moved above Products
+import Services from './components/Services'; // <-- Incense Products
+import Gallery from './components/Gallery';
 import Events from './components/Events';
-import About from './components/About';
 import Contact from './components/Contact';
 import CheckoutModal from './components/CheckoutModal';
 
@@ -55,14 +55,22 @@ function App() {
         onOpenCart={() => setIsCartOpen(true)} 
       />
       
+      {/* 1. Hero Section */}
       <Home />
+      
+      {/* 2. Our Story Section (uses pic7.jpeg) */}
+      <About />
+      
+      {/* 3. Incense Products Section */}
       <Services onAddToCart={handleAddToCart} />
       
-      {/* Gallery added between Products (Services) and Treks/Events */}
+      {/* 4. Visual Heritage Gallery */}
       <Gallery />
       
+      {/* 5. Trekking & Events */}
       <Events />
-      <About />
+      
+      {/* 6. Contact & Direct Inquiries */}
       <Contact />
 
       {/* Cart Drawer */}

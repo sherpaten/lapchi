@@ -5,38 +5,53 @@ import '../Stylesheet/About.css';
 const About = () => {
   return (
     <section id="about" className="about-section">
-      <div className="container about-grid">
+      <div className="container about-container">
+        {/* Animated Heritage Image with pic7.jpeg */}
         <motion.div 
-          className="about-text"
-          initial={{ opacity: 0, x: -30 }}
+          className="about-image-wrapper"
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="about-tagline">OUR STORY</span>
-          <h2 className="section-title" style={{ textAlign: 'left' }}>The Spirit of Lapchi Mila</h2>
-          
-          <p className="about-p highlight-p">
-            <strong>Lapchi Mila’s Nesang</strong> is a traditional Himalayan incense made from carefully selected <em>natural herbs</em> and <em>aromatic plants</em> gathered from the sacred highlands of Lapchi, situated at an average elevation of <strong>4,850 meters above sea level</strong>.
-          </p>
-
-          <p className="about-p">
-            Rooted in centuries-old Himalayan traditions, our sacred formulations embody the pure, tranquil energy of the high mountain trails.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          className="about-img-box"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=800" 
-            alt="Himalayan Highlands" 
-            className="about-img" 
+            src={process.env.PUBLIC_URL + '/Gallary/pic7.jpeg'} 
+            alt="Lapchi Mila Heritage & Traditions" 
+            className="about-img"
           />
+          <div className="about-img-frame"></div>
+        </motion.div>
+
+        {/* Story Text Content */}
+        <motion.div 
+          className="about-text-content"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <span className="section-subtitle">OUR SACRED ORIGINS</span>
+          <h2 className="section-title">The Legacy of Lapchi Mila</h2>
+          <div className="gold-divider-left"></div>
+
+          <p className="about-description">
+            Nested deep in the majestic Himalayas at 4,850 meters altitude lies <strong>Lapchi</strong>—a sacred sanctuary revered for centuries by yogis and spiritual practitioners.
+          </p>
+
+          <p className="about-description">
+            Our artisanal <strong>Nesang Incense</strong> is hand-crafted following strict ancient monastic recipes. Every herb, juniper branch, and wild flower is gathered sustainably from pristine alpine heights, ensuring an unadulterated, deeply purifying aroma for your space.
+          </p>
+
+          <div className="about-stats">
+            <div className="stat-card">
+              <h3>4,850m</h3>
+              <p>Alpine Altitude Gathering</p>
+            </div>
+            <div className="stat-card">
+              <h3>100%</h3>
+              <p>Natural & Sacred Herbs</p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
