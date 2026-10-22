@@ -1,31 +1,28 @@
-.navbar-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--nav-border);
-  transition: var(--transition);
+:root {
+  /* Updated Background Palette */
+  --bg-dark: #1c1917;      /* Deep warm alpine stone */
+  --bg-card: #26221f;      /* Lighter card container background */
+  --bg-light: #332d28;     /* Soft hover state background */
+  
+  /* Navbar Background Variables */
+  --nav-bg: rgba(28, 25, 23, 0.88); /* Semi-transparent warm dark */
+  --nav-border: rgba(212, 175, 55, 0.2);
+  
+  /* Text & Accent Colors */
+  --primary-gold: #d4af37;  /* Warm Himalayan Gold */
+  --text-main: #f5f2eb;     /* Off-white parchment text */
+  --text-muted: #c4bcae;    /* Muted warm beige text */
+  --border-gold: rgba(212, 175, 55, 0.25);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.logo-brand {
-  color: var(--primary-gold);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: 1.5px;
-}
-
-.nav-menu a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: var(--transition);
-}
-
-.nav-menu a:hover {
-  color: var(--primary-gold);
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
