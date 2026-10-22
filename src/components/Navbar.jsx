@@ -22,12 +22,10 @@ const Navbar = ({ cartCount, onOpenCart }) => {
 
         <nav className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
-                    <a href="#about" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
-
+          <a href="#about" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
           <a href="#incense" onClick={() => setMobileMenuOpen(false)}>Incense Collection</a>
           <a href="#gallery" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
           <a href="#events" onClick={() => setMobileMenuOpen(false)}>Trekking & Events</a>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)}>Our Story</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
         </nav>
 
