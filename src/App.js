@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Services from './components/Services';
+import Gallery from './components/Gallery'; // <-- Import Gallery
 import Events from './components/Events';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -56,6 +57,10 @@ function App() {
       
       <Home />
       <Services onAddToCart={handleAddToCart} />
+      
+      {/* Gallery added between Products (Services) and Treks/Events */}
+      <Gallery />
+      
       <Events />
       <About />
       <Contact />
@@ -98,7 +103,6 @@ function App() {
                         <h4>{item.name}</h4>
                         <p>NPR {item.price} each</p>
                         
-                        {/* Quantity Controls */}
                         <div className="qty-controls">
                           <button onClick={() => handleUpdateQty(item.id, -1)}>-</button>
                           <span>{item.qty}</span>
